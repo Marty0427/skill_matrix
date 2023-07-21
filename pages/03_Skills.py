@@ -31,7 +31,7 @@ skill = st.text_input('Enter skill')
 description = st.text_input('Enter skill description')
 category = st.selectbox(
             'Select a skill category',
-            ['Programming', 'Softskill', 'Devops', 'Machine learning', 'Jira'])
+            ['Programming', 'Softskill', 'Devops', 'Machine learning', 'Atlassian'])
 
 
 

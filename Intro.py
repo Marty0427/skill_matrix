@@ -10,7 +10,7 @@ st.markdown(
         ### First steps
         - Go to *Users* tab and input your name and contact information to the db
         - Assign skill/certificates/languages to your name
-        - if the skill/certfificate or language is not in options, add it
+        - If the skill/certfificate or language is not in options, add it
         """
         )
 

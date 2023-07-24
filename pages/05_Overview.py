@@ -23,7 +23,7 @@ df_overview = pd.concat([df_PersonSkill.rename(columns = {'name': 'name_skill'})
                          df_PersonCertificate.rename(columns = {'name': 'name_certificate'})])
 
 
-df_PersonSkill.level = df_PersonSkill.apply(rating_to_star)
+df_PersonSkill.level = df_PersonSkill.level.apply(rating_to_star)
 df_PersonSkill = pd.merge(df_PersonSkill, df_Skill, on='skill')
 df_PersonCertificate = pd.merge(df_PersonCertificate, df_Certificate, on='certificate')
 df_PersonLanguage = pd.merge(df_PersonLanguage, df_Language, on='language')

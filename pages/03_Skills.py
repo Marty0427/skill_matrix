@@ -26,7 +26,7 @@ PersonSkill_table = db.table('PersonSkill')
 df_PersonSkill = pd.DataFrame(PersonSkill_table)
 df_Skill = pd.DataFrame(Skill_table)
 
-df_PersonSkill.level = df_PersonSkill.apply(rating_to_star)
+df_PersonSkill.level = df_PersonSkill.level.apply(rating_to_star)
 
 df = pd.merge(df_PersonSkill, df_Skill, on='skill')
 

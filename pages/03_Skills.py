@@ -2,6 +2,9 @@ from tinydb import TinyDB
 import streamlit as st
 import pandas as pd
 
+def rating_to_star(rating):
+    return '⭐' * rating
+
 st.set_page_config(layout="centered")
 
 header_slot = st.empty()
@@ -22,6 +25,8 @@ PersonSkill_table = db.table('PersonSkill')
 
 df_PersonSkill = pd.DataFrame(PersonSkill_table)
 df_Skill = pd.DataFrame(Skill_table)
+
+df_PersonSkill.level = df_PersonSkill.apply(rating_to_star)
 
 df = pd.merge(df_PersonSkill, df_Skill, on='skill')
 

@@ -68,7 +68,7 @@ level = st.selectbox(
     )
 
 if st.button('Assign'):
-    PersonSkill_table.insert({'name': option_name, 'skill': option_skill, 'level': level*"\u2B50"})
+    PersonSkill_table.insert({'name': option_name, 'skill': option_skill, 'level': level})
     st.success(f'{option_skill} skill for {option_name} added to the database')
 
 #view

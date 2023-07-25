@@ -82,14 +82,14 @@ option_skills = option_slot2.multiselect('Select a skill',
 
 
 if option_names and option_skills:
-    df_slot.dataframe(df[(df.name.isin(option_names)) & (df.skill.isin(option_skills))], hide_index=True)
+    df_slot.dataframe(df[(df.name.isin(option_names)) & (df.skill.isin(option_skills))], hide_index=True, use_container_width=True)
 
 elif option_names and not option_skills:
-    df_slot.dataframe(df[(df.name.isin(option_names))], hide_index=True)
+    df_slot.dataframe(df[(df.name.isin(option_names))], hide_index=True, use_container_width=True)
 
 elif option_skills and not option_names:
-    df_slot.dataframe(df[(df.skill.isin(option_skills))], hide_index=True)
+    df_slot.dataframe(df[(df.skill.isin(option_skills))], hide_index=True, use_container_width=True)
 
 else:
-    df_slot.dataframe(df, hide_index=True    )
+    df_slot.dataframe(df, hide_index=True, use_container_width=True)
 

@@ -51,7 +51,6 @@ valid_names = []
 
 if option_names:
     option_names_filter = option_names.copy()
-    #name_names = df_PersonCertificate[df_PersonCertificate.certificate.isin(option_certificates)].name
     valid_names.append(option_names)
 else:
     option_names_filter = df_Person.name.unique()
@@ -88,14 +87,10 @@ else:
     valid_names = df_Person.name
 
 
-#option_names_bool = (df_overview.name_language.isin(option_names_filter) | df_overview.name_certificate.isin(option_names_filter) | df_overview.name_skill.isin(option_names_filter))
-
-#option_names_bool = df_overview..isin(option_certificates_filter)
 option_certificates_bool = df_overview.certificate.isin(option_certificates_filter)
 option_languages_bool = df_overview.language.isin(option_languages_filter)
 option_skills_bool = df_overview.skill.isin(option_skills_filter)
 
-#option_names_bool & 
 df_visible = df_overview[(option_certificates_bool | option_languages_bool | option_skills_bool)]
 
 names_intersection = set(df_visible.name_skill).intersection(df_visible.name_language).intersection(df_visible.name_certificate)

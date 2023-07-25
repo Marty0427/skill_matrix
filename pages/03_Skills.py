@@ -17,7 +17,7 @@ df_slot = st.empty()
 
 
 
-db = TinyDB('db.json')
+db = TinyDB('db.json', encoding = 'utf-8')
 
 Person_table = db.table('Person')
 Skill_table = db.table('Skill')
@@ -36,7 +36,7 @@ skill = st.text_input('Enter skill')
 description = st.text_input('Enter skill description')
 category = st.selectbox(
             'Select a skill category',
-            ['Programming', 'Softskill', 'Machine learning', 'Atlassian', 'Other'])
+            ['Programming', 'Softskill', 'Machine learning', 'Atlassian', 'Marketing', 'Other'])
 
 
 

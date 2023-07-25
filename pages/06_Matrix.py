@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from tinydb import TinyDB
 
-db = TinyDB('db.json')
+db = TinyDB('db.json', encoding = 'utf-8')
 
 df_Person = pd.DataFrame(db.table('Person'))
 df_PersonSkill = pd.DataFrame(db.table('PersonSkill'))

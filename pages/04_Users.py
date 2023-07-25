@@ -10,7 +10,7 @@ option_slot = st.empty()
 
 df_slot = st.empty()
 
-db = TinyDB('db.json')
+db = TinyDB('db.json', encoding = 'utf-8')
 
 Person_table = db.table('Person')
 

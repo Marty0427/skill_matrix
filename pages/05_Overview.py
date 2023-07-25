@@ -8,7 +8,7 @@ def rating_to_star(rating):
 st.set_page_config(layout="wide")
 
 
-db = TinyDB('db.json')
+db = TinyDB('db.json', encoding = 'utf-8')
 
 df_Person = pd.DataFrame(db.table('Person'))
 df_PersonSkill = pd.DataFrame(db.table('PersonSkill'))

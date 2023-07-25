@@ -8,7 +8,7 @@ st.set_page_config(
 st.header('Remove user')
 
 
-db = TinyDB('db.json')
+db = TinyDB('db.json', encoding = 'utf-8')
 Person_table = db.table('Person')
 
 

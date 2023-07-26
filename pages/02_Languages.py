@@ -1,4 +1,4 @@
-from tinydb import TinyDB
+from tinydb import TinyDB, Query
 import streamlit as st
 import pandas as pd
 
@@ -13,7 +13,7 @@ option_slot2 = st.empty()
 
 df_slot = st.empty()
 
-
+User = Query()
 db = TinyDB('db.json')
 
 Person_table = db.table('Person')
@@ -56,8 +56,14 @@ level = st.selectbox(
 
 
 if st.button('Assign'):
-    PersonLanguage_table.insert({'name': option_name, 'language': option_language, 'level': level})
-    st.success(f'{option_language} assigned to {option_name}')
+    record_exists = PersonLanguage_table.search((User.name == option_name) & (User.language == option_language))
+    if record_exists:
+        PersonLanguage_table.update({'level': level}, (User.name == option_name) & (User.language == option_language))
+        st.success(f'{option_language} level updated for {option_name}')
+
+    else:
+        PersonLanguage_table.insert({'name': option_name, 'language': option_language, 'level': level})
+        st.success(f'{option_language} assigned to {option_name}')
 
 
 #view

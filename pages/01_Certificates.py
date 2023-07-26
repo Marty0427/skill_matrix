@@ -1,4 +1,4 @@
-from tinydb import TinyDB
+from tinydb import TinyDB, Query
 import streamlit as st
 import pandas as pd
 
@@ -12,7 +12,7 @@ option_slot2 = st.empty()
 
 df_slot = st.empty()
 
-
+User = Query()
 db = TinyDB('db.json', encoding = 'utf-8')
 
 Person_table = db.table('Person')
@@ -56,9 +56,13 @@ option_certificate = st.selectbox(
 
 
 if st.button('Assign'):
-    PersonCertificate_table.insert({'name': option_name, 'certificate': option_certificate})
-    st.success(f'{option_certificate} certificate for {option_name} added to the database')
+    record_exists = PersonCertificate_table.search((User.name == option_name) & (User.certificate == option_certificate))
+    if record_exists:
+        st.error(f'{option_certificate} certificate for {option_name} already exists')
 
+    else:
+        PersonCertificate_table.insert({'name': option_name, 'certificate': option_certificate})
+        st.success(f'{option_certificate} certificate for {option_name} added to the database')
 
 
 #view
